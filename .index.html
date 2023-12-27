@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Music Pistas</title>
+    <style>
+        body {
+            background-color: #111;
+            color: #fff;
+            font-family: Arial, sans-serif;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            margin: 0;
+        }
+
+        #pistas-container {
+            text-align: center;
+        }
+
+        .pista-input {
+            margin: 10px;
+            padding: 10px;
+            font-size: 16px;
+        }
+
+        #answer {
+            display: none;
+            font-size: 24px;
+            margin-top: 20px;
+        }
+    </style>
+</head>
+<body>
+
+<div id="pistas-container">
+    <h1>Music Pistas</h1>
+
+    <input type="text" class="pista-input" id="pista1" placeholder="Pista 1">
+    <input type="text" class="pista-input" id="pista2" placeholder="Pista 2">
+    <input type="text" class="pista-input" id="pista3" placeholder="Pista 3">
+    <input type="text" class="pista-input" id="pista4" placeholder="Pista 4">
+
+    <div id="answer">Answer</div>
+</div>
+
+<script>
+    document.addEventListener("DOMContentLoaded", function() {
+        document.getElementById("pista1").addEventListener("input", checkInput);
+        document.getElementById("pista2").addEventListener("input", checkInput);
+        document.getElementById("pista3").addEventListener("input", checkInput);
+        document.getElementById("pista4").addEventListener("input", checkInput);
+
+        function checkInput(event) {
+            const inputValue = event.target.value.toLowerCase();
+            const containsViolin = inputValue.includes("violin");
+
+            if (containsViolin) {
+                document.getElementById("answer").style.display = "block";
+            } else {
+                document.getElementById("answer").style.display = "none";
+            }
+        }
+    });
+</script>
+
+</body>
+</html>
